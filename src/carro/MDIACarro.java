@@ -4,18 +4,26 @@
  */
 package carro;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Mendoza
  */
 public class MDIACarro extends javax.swing.JFrame {
     IFrmCarro frmCarro = new IFrmCarro();
-    LISTA frmLista = new LISTA();
+    IFrmLista frmLista = new IFrmLista();
+    
+    
+    
     /**
      * Creates new form MDIACarro
      */
     public MDIACarro() {
         initComponents();
+        
+        
     }
 
     /**

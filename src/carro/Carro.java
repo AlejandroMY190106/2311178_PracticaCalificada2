@@ -4,21 +4,28 @@
  */
 package carro;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Mendoza
  */
 public class Carro {
+    private static ArrayList<Carro> listaCarros = new ArrayList<>();
+
     private String modelo;
       private String color;
-    private boolean pintura;
+    private String pintura;
      private String placa;
      private String tipo;
      private String año;
      private String modalidad_seguro;
+     
+     
+     
     
 
-    public Carro(String modelo, String color, boolean pintura, String placa, String tipo, String año, String modalidad_seguro) {
+    public Carro(String modelo, String color, String pintura, String placa, String tipo, String año, String modalidad_seguro) {
         this.modelo = modelo;
         this.color = color;
         this.pintura = pintura;
@@ -26,8 +33,21 @@ public class Carro {
         this.tipo = tipo;
         this.año = año;
         this.modalidad_seguro = modalidad_seguro;
+        listaCarros.add(this);
     }
-
+    public static void IniciaListaCarros(){
+        Carro carro= new Carro("Toyota" , "Azul" ,"metalizado" , "ALM-561" ,"MINI","2010","Terceros");
+        
+    }
+    public static Carro buscarCarroPorPlaca(String placa) {
+        for (Carro carro : listaCarros) {
+            if (carro.getPlaca().equals(placa)) {
+                return carro;
+            }
+        }
+        return null;
+    }
+   
     public String getModelo() {
         return modelo;
     }
@@ -36,7 +56,7 @@ public class Carro {
         return color;
     }
 
-    public boolean isPintura() {
+    public String getPintura() {
         return pintura;
     }
 
@@ -64,7 +84,7 @@ public class Carro {
         this.color = color;
     }
 
-    public void setPintura(boolean pintura) {
+    public void setPintura(String pintura) {
         this.pintura = pintura;
     }
 
@@ -83,4 +103,10 @@ public class Carro {
     public void setModalidad_seguro(String modalidad_seguro) {
         this.modalidad_seguro = modalidad_seguro;
     }
+
+    @Override
+    public String toString() {
+        return "Carro{" + "modelo=" + modelo + ", color=" + color + ", pintura=" + pintura + ", placa=" + placa + ", tipo=" + tipo + ", a\u00f1o=" + año + ", modalidad_seguro=" + modalidad_seguro + '}';
+    }
+    
     }
